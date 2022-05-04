@@ -7,7 +7,7 @@ import cv2
 from numpy.linalg import eig
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--image", default="corner2.gif", type=str, help="Image to load.")
+parser.add_argument("--image", default="input1.gif", type=str, help="Image to load.")
 parser.add_argument("--task", default="corners", type=str, help="Selected task: corners/susan.")
 parser.add_argument("--response", default="harris and stephens", type=str, help="Response function for 1st task.")
 
