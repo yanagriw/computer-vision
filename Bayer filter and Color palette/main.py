@@ -3,7 +3,6 @@ import numpy as np
 import cv2 # OpenCV
 
 parser = argparse.ArgumentParser()
-# You may change the values of the arguments here (default) or in the commandline.
 parser.add_argument("--image", default="Lighthouse_bggr.png", type=str, help="Image to load.")
 parser.add_argument("--task", default="bayer", type=str, help="Selected task.")
 
@@ -82,12 +81,6 @@ def bayer(img: np.ndarray) -> np.ndarray:
 def main(args : argparse.Namespace):
 
     img = cv2.imread(args.image)
-
-    # TODO (Task 1 'bayer'): Load the image 'Lighthouse_bggr.png'. It contains information about
-    # intensities in Bayer pattern (mosaic). The Bayer mosaic is in the format 'BGGR'. Create
-    # a colour image out of the mosaic by simple averaging in a 3x3 neighbourhood.
-    # Compare your result with the output of demosaicing function in OpenCV ('cv2.demosaicing'
-    # or 'cv2.cvtColor').
     
     if args.task == "bayer":
         img_result = bayer(img)
@@ -95,11 +88,6 @@ def main(args : argparse.Namespace):
         cv2.waitKey(0) 
         cv2.destroyAllWindows()
 
-    # TODO (Task 2 'palette'): Implement a function that finds a colour palette of an image
-    # according to division by median (generally known as 'median cut'). We assume that the image
-    # is in RGB colour space. The number of requested colours is provided as one of the arguments.
-    # If the image contains fewer colours than the requested number then return the original set
-    # of colours from the image.
     if args.task == "palette":
         rows, cols = img.shape[0:2]
         num_of_colors = 8
@@ -107,10 +95,6 @@ def main(args : argparse.Namespace):
         all_colors = np.unique(all_pixels, axis = 0)
         palette = np.array(medianCut(all_colors, num_of_colors))
         print(palette)
-    
-
-    # TODO (Task 3): Based on the formula for minimisation of the mean squared error of quantisation
-    # derive that the conditions of the closest neighbour and centroid hold.
 
     pass
 
