@@ -95,11 +95,6 @@ def main(args : argparse.Namespace):
         cv2.imshow('corners', img)
         cv2.waitKey(0)
 
-    # TODO (Task 3): Prove the equality with gaussian derivations attached to the homework.
-    # - Write the proof on a piece of paper (and submit its picture) or in LaTeX.
-    # - Please, don't write the proof in this source file.
-    #
-    # NOTE: This task does not require any programming - it is a pen&paper exercise.
     pass
 
 
