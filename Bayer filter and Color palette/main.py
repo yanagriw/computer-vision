@@ -31,19 +31,6 @@ def medianCut(image : np.ndarray, numColors : int) -> list:
 
     return colors1 + colors2
 
-
-    for r, g, b in palette:
-        old_colors = [c for c in new_colors.keys() if (r, g, b) == new_colors[c]]
-        mean0 = int(sum(r[0] for r in old_colors)/len(old_colors))
-        mean1 = int(sum(g[1] for g in old_colors)/len(old_colors))
-        mean2 = int(sum(b[2] for b in old_colors)/len(old_colors))
-
-        cent = (mean0, mean1, mean2)
-
-        if cent != (r, g, b):
-            return False
-    return True
-
 def bayer(img: np.ndarray) -> np.ndarray:
     red = img[:, :, 0]
     green = img[:, :, 1]
